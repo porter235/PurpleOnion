@@ -1,0 +1,10 @@
+PURPLE ONION PROJECT
+make "Application name" on top bar and orders link (AT SOME POINT CHANGE TO INVENTORY, HAVE ORDERS BE SMALL LIKE HOME ABOUT CONTACT)
+Add employee delete order button
+add order page for users
+RESTRICT ACCESS BY ACCOUNT TYPE
+CSS stuff
+Other odds and ends that can be implemented
+
+Figure out how to add a second table
+Inventory database model
