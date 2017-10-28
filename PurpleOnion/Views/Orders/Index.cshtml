@@ -5,9 +5,16 @@
 }
 
 <h2>Orders</h2>
+<p>
+    @Html.ActionLink("Add Order", "New")
+</p>
 <ul>
     @foreach (var order in Model)
     {
-        <li>@order.AccountName (@order.PickUpTime)(@order.Items)</li>
+        <li>
+            @order.AccountName (@order.PickUpTime)(@order.Items)
+            @Html.ActionLink("Edit", "Edit", new { id = order.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = order.Id })
+        </li>
     }
 </ul>

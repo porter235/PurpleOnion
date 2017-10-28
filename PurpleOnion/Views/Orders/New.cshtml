@@ -1,0 +1,11 @@
+﻿@model PurpleOnion.Models.Order
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>New Order</h2>
+@using (Html.BeginForm("Add", "Orders", FormMethod.Post, new { @class = "form" }))
+{
+    Html.RenderPartial("_OrderForm");
+}
