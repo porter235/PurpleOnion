@@ -16,6 +16,8 @@ namespace PurpleOnion.Controllers
             _dbContext = new ApplicationDbContext();
         }
         // GET: Orders
+        [HttpPost]
+        [Authorize(Roles = "Admin,  Employee")]
         public ActionResult Index()
         {
             var orders = _dbContext.Orders.ToList();
