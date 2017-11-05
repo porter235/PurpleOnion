@@ -16,8 +16,9 @@ namespace PurpleOnion.Controllers
             _dbContext = new ApplicationDbContext();
         }
         // GET: Orders
-        [HttpPost]
-        [Authorize(Roles = "Admin,  Employee")]
+
+        [Authorize(Roles = "Admin")]
+
         public ActionResult Index()
         {
             var orders = _dbContext.Orders.ToList();
@@ -37,9 +38,10 @@ namespace PurpleOnion.Controllers
         {
             var order = _dbContext.Orders.SingleOrDefault(v => v.Id == id);
 
-            if(order == null)
+
+            if (order == null)
                 return HttpNotFound();
-            
+
             return View(order);
         }
         public ActionResult Update(Order order)

@@ -8,3 +8,8 @@ Other odds and ends that can be implemented
 
 Figure out how to add a second table
 Inventory database model
+
+
+#########UPDATE FRIDAY BEFORE DEMO#############
+Gotta figure out how to get the admin logged in
+Restrict everything that needs to be restricted.
