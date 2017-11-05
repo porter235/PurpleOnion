@@ -269,7 +269,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Orders\Index.cshtml" />
     <Content Include="Views\users\Index.cshtml" />
-    <Content Include="Views\Account\AddRole.cshtml" />
+    <Content Include="Views\Account\Role.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

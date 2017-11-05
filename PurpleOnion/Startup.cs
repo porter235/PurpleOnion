@@ -33,7 +33,7 @@ namespace PurpleOnion
 
                 //Here we create a Addmin super user who will maintain the website
                 var user = new ApplicationUser();
-                //user.UserName = "Gabe";
+                user.UserName = "Gabe";
                 user.Email = "porter235@live.marshall.edu";
 
                 string userPWD = "A@Z200711";

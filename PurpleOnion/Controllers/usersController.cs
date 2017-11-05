@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace PurpleOnion.Controllers
 {
-
+    [Authorize]
     public class usersController : Controller
     {
     // GET: users
