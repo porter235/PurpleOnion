@@ -6,3 +6,9 @@
 <p>
     @Html.ActionLink("Place Order", "New", "Orders", new { area = "" }, null)
 </p>
+<p>
+    @if(User.IsInRole("Admin"))
+    {
+        @Html.ActionLink("View Orders", "Index", "Orders", new { area = "" }, null)
+    }
+</p>
