@@ -17,23 +17,26 @@ namespace PurpleOnion.Controllers
         }
         // GET: Orders
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Employee")]
 
         public ActionResult Index()
         {
             var orders = _dbContext.Orders.ToList();
             return View(orders);
         }
+        [Authorize(Roles = "User")]
         public ActionResult New()
         {
             return View();
         }
+        [Authorize(Roles = "User")]
         public ActionResult Add(Order order)
         {
             _dbContext.Orders.Add(order);
             _dbContext.SaveChanges();
             return RedirectToAction("Index");
         }
+        [Authorize(Roles = "Admin, Employee")]
         public ActionResult Edit(int id)
         {
             var order = _dbContext.Orders.SingleOrDefault(v => v.Id == id);
@@ -44,6 +47,7 @@ namespace PurpleOnion.Controllers
 
             return View(order);
         }
+        //[Authorize(Roles = "Admin, Employee, User")]
         public ActionResult Update(Order order)
         {
             var orderInDb = _dbContext.Orders.SingleOrDefault(v => v.Id == order.Id);
@@ -57,6 +61,7 @@ namespace PurpleOnion.Controllers
 
             return RedirectToAction("Index");
         }
+        [Authorize(Roles = "Admin, Employee")]
         public ActionResult Delete(int id)
         {
             var order = _dbContext.Orders.SingleOrDefault(v => v.Id == id);
@@ -66,6 +71,7 @@ namespace PurpleOnion.Controllers
 
             return View(order);
         }
+        //[Authorize(Roles = "Admin, Employee")]
         public ActionResult DoDelete(int id)
         {
             var order = _dbContext.Orders.SingleOrDefault(v => v.Id == id);

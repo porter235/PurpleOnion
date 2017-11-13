@@ -12,7 +12,7 @@
     @foreach (var order in Model)
     {
         <li>
-            @order.AccountName (@order.PickUpTime)(@order.Items)
+            @User.Identity.Name (@order.PickUpTime)(@order.Items)
             @Html.ActionLink("Edit", "Edit", new { id = order.Id }) |
             @Html.ActionLink("Delete", "Delete", new { id = order.Id })
         </li>

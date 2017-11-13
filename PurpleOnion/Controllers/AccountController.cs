@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using PurpleOnion.Models;
 using System.Web.Security;
+using System.Collections.Generic;
 
 namespace PurpleOnion.Controllers
 {
@@ -62,6 +63,7 @@ namespace PurpleOnion.Controllers
             return View();
         }
 
+
         //
         // POST: /Account/Login
         [HttpPost]
@@ -90,6 +92,12 @@ namespace PurpleOnion.Controllers
                     ModelState.AddModelError("", "Invalid login attempt.");
                     return View(model);
             }
+        }
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult editRoles()
+        {
+            return View();
         }
 
         //
@@ -153,8 +161,10 @@ namespace PurpleOnion.Controllers
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                var result = await UserManager.CreateAsync(user, model.Password);                if (result.Succeeded)
+                var result = await UserManager.CreateAsync(user, model.Password);
+                if (result.Succeeded)
                 {
+                    UserManager.AddToRole(user.Id, "User");
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
