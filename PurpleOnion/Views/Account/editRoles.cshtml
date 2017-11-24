@@ -1,0 +1,20 @@
+﻿@{ 
+
+
+    ViewBag.Title = "editRoles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+
+    //var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new ApplicationDbContext()));
+    var admin = Roles.GetUsersInRole("Admin").ToList();
+    var employee = Roles.GetUsersInRole("Employee").ToList();
+    var users = Roles.GetUsersInRole("User").ToList();
+
+    foreach(var a in admin)
+    {
+        <li>
+            @a
+        </li>
+    }
+}

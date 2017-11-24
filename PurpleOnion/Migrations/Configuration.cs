@@ -32,6 +32,27 @@ namespace PurpleOnion.Migrations
 
                 userManager.AddToRole(user.Id, "Admin");
             }
+            if (!context.Users.Any(t => t.UserName == "purpleonionstore@gmail.com"))
+            {
+                var user = new ApplicationUser { UserName = "purpleonionstore@gmail.com", Email = "purpleonionstore@gmail.com" };
+                userManager.Create(user, "passW0rd!");
+
+                context.Roles.AddOrUpdate(r => r.Name, new IdentityRole { Name = "Employee" });
+                context.SaveChanges();
+
+                userManager.AddToRole(user.Id, "Employee");
+            }
+            if(!context.Roles.Any(r => r.Name == "User"))
+            {
+                var store = new RoleStore<IdentityRole>(context);
+                var manager = new RoleManager<IdentityRole>(store);
+                var role = manager.FindByName("Admin");
+                if(role == null)
+                {
+                    role = new IdentityRole("Admin");
+                    manager.Create(role);
+                }
+            }
 
             //  This method will be called after migrating to the latest version.
 
