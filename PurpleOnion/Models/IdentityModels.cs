@@ -30,5 +30,7 @@ namespace PurpleOnion.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<PurpleOnion.Models.Inventory> Inventories { get; set; }
     }
 }
