@@ -245,8 +245,28 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap\.gitignore" />
+    <Content Include="Content\bootstrap\css\business-frontpage.css" />
+    <Content Include="Content\bootstrap\gulpfile.js" />
+    <Content Include="Content\bootstrap\index.html" />
+    <Content Include="Content\bootstrap\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\bootstrap\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\bootstrap\vendor\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="Content\bootstrap\vendor\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="Content\bootstrap\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="Content\bootstrap\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\bootstrap\vendor\jquery\jquery.js" />
+    <Content Include="Content\bootstrap\vendor\jquery\jquery.min.js" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-social-webfont.svg" />
@@ -351,6 +371,10 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\FontAwesome.otf" />
     <Content Include="images\Thumbs.db" />
+    <Content Include="Content\bootstrap\.travis.yml" />
+    <Content Include="Content\bootstrap\LICENSE" />
+    <Content Include="Content\bootstrap\package.json" />
+    <Content Include="Content\bootstrap\README.md" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
@@ -381,8 +405,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
