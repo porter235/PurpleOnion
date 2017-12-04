@@ -10,6 +10,7 @@
     @if(User.IsInRole("Admin"))
     {
         @Html.ActionLink("View Orders", "Index", "Orders", new { area = "" }, null)
+        <div></div>
         @Html.ActionLink("View Inventory", "Index", "Inventories", new { area = "" }, null)
     }
 </p>
