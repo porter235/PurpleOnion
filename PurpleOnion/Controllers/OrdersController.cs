@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PurpleOnion.Models;
+using System.Net.Mail;
 
 namespace PurpleOnion.Controllers
 {
@@ -24,17 +25,17 @@ namespace PurpleOnion.Controllers
             var orders = _dbContext.Orders.ToList();
             return View(orders);
         }
-        [Authorize(Roles = "User")]
+        [Authorize(Roles = "User, Employee, Admin")]
         public ActionResult New()
         {
             return View();
         }
-        [Authorize(Roles = "User")]
+        [Authorize(Roles = "User, Employee, Admin")]
         public ActionResult Add(Order order)
         {
             _dbContext.Orders.Add(order);
             _dbContext.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("OrderConfirm");
         }
         [Authorize(Roles = "Admin, Employee")]
         public ActionResult Edit(int id)
@@ -80,6 +81,46 @@ namespace PurpleOnion.Controllers
             _dbContext.Orders.Remove(order);
             _dbContext.SaveChanges();
             return RedirectToAction("Index");
+        }
+        public ActionResult OrderConfirm()
+        {
+            SendEmail();
+            //return RedirectToAction("Index", "Surveys");
+
+
+            
+
+            return View();
+
+
+
+
+        }
+        public void SendEmail()
+        {
+            string x = "purpleonionwv@outlook.com";//User.Identity.Name; //This will be the string that needs to be replaced
+            MailMessage mail = new MailMessage();
+            mail.To.Add(x);
+            //     mail.To.Add("Another Email ID where you wanna send same email");
+            mail.From = new MailAddress("thepurpleonionwv@outlook.com");
+            mail.Subject = "Order Confirmation";
+
+            string Body = "Hello! We have recieved your order and should have it ready to be picked up";
+            mail.Body = Body;
+
+            mail.IsBodyHtml = true;
+            SmtpClient smtp = new SmtpClient();
+            smtp.Port = 587;
+            smtp.Host = "smtp.outlook.com"; //Or Your SMTP Server Address
+            smtp.Credentials = new System.Net.NetworkCredential
+                 ("thepurpleonionwv@outlook.com", "farmfreshgoods!");
+            //Or your Smtp Email ID and Password
+            smtp.EnableSsl = true;
+            try
+            {
+                smtp.Send(mail);
+            }
+            catch (Exception e) { }
         }
     }
 }
