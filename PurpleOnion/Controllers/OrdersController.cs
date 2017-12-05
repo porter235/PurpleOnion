@@ -84,7 +84,7 @@ namespace PurpleOnion.Controllers
         }
         public ActionResult OrderConfirm()
         {
-            SendEmail();
+            SendEmail(User.Identity.Name);
             //return RedirectToAction("Index", "Surveys");
 
 
@@ -96,13 +96,13 @@ namespace PurpleOnion.Controllers
 
 
         }
-        public void SendEmail()
+        public void SendEmail(string email)
         {
-            string x = "purpleonionwv@outlook.com";//User.Identity.Name; //This will be the string that needs to be replaced
+            string x = "purpleonionwv@gmail.com";//User.Identity.Name; //This will be the string that needs to be replaced
             MailMessage mail = new MailMessage();
-            mail.To.Add(x);
+            mail.To.Add(email);
             //     mail.To.Add("Another Email ID where you wanna send same email");
-            mail.From = new MailAddress("thepurpleonionwv@outlook.com");
+            mail.From = new MailAddress("purpleonionwv@gmail.com");
             mail.Subject = "Order Confirmation";
 
             string Body = "Hello! We have recieved your order and should have it ready to be picked up";
@@ -111,9 +111,9 @@ namespace PurpleOnion.Controllers
             mail.IsBodyHtml = true;
             SmtpClient smtp = new SmtpClient();
             smtp.Port = 587;
-            smtp.Host = "smtp.outlook.com"; //Or Your SMTP Server Address
+            smtp.Host = "smtp.gmail.com"; //Or Your SMTP Server Address
             smtp.Credentials = new System.Net.NetworkCredential
-                 ("thepurpleonionwv@outlook.com", "farmfreshgoods!");
+                 ("purpleonionwv@gmail.com", "farmfreshgoods!");
             //Or your Smtp Email ID and Password
             smtp.EnableSsl = true;
             try
