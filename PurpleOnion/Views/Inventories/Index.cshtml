@@ -3,7 +3,19 @@
 @{
     ViewBag.Title = "Index";
 }
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Purple Onion</title>
+    <!-- Bootstrap core CSS -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template
+    <link href="css/business-frontpage.css" rel="stylesheet">-->
+</head>
 <h2>Index</h2>
 
 <p>
@@ -29,38 +41,39 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Brand)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Type)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Stock)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.ActionLink("Details", "Details", new { id = item.Id })
-            @if (User.IsInRole("Admin"))
-            {
-                <text> | </text>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id })
-                <text> | </text>
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id });
-            }
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Brand)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stock)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.Id })
+                @if (User.IsInRole("Admin"))
+                {
+                    <text> | </text>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                    <text> | </text>
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id });
+                }
 
 
 
 
-        </td>
-    </tr>
-}
+            </td>
+        </tr>
+    }
 
 </table>
