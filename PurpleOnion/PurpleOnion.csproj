@@ -264,6 +264,8 @@
     <Content Include="images\poLogo.jpg" />
     <Content Include="images\produce.jpg" />
     <Content Include="images\produce.png" />
+    <Content Include="images\smspace.png" />
+    <Content Include="images\space.png" />
     <Content Include="images\straw.png" />
     <Content Include="Roles\CreateUserWizardWithRoles.aspx" />
     <Content Include="Roles\RoleBasedAuthorization.aspx" />
