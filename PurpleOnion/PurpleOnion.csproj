@@ -259,7 +259,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\CapitolMarketLogo.png" />
     <Content Include="images\pic01.jpg" />
+    <Content Include="images\poLogo.jpg" />
+    <Content Include="images\produce.jpg" />
+    <Content Include="images\produce.png" />
     <Content Include="Roles\CreateUserWizardWithRoles.aspx" />
     <Content Include="Roles\RoleBasedAuthorization.aspx" />
     <Content Include="Roles\Roles.aspx" />
