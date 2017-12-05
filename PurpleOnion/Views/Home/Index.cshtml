@@ -33,11 +33,15 @@
         <div class="row">
             <div class="col-sm-8">
                 <h2 class="mt-4">About Us</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A deserunt neque tempore recusandae animi soluta quasi? Asperiores rem dolore eaque vel, porro, soluta unde debitis aliquam laboriosam. Repellat explicabo, maiores!</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis optio neque consectetur consequatur magni in nisi, natus beatae quidem quam odit commodi ducimus totam eum, alias, adipisci nesciunt voluptate. Voluptatum.</p>
+                <p>The Purple Onion is a super hip,  locally owned grocery store inside Capitol Market. We carry everything from fresh, WV grown produce to bulk Amish foods. We also have many unique specialty items that you won't find at other chain grocery stores. We also make fresh salads, soups and lunches daily! So feel free to stop in and see what our daily special is, we know you won't be disappointed! If you're in the need for a special gift we can also make custom gift baskets and we ship anywhere in the world! </p>
+                <h3>What You Can Experience</h3>
+                <p>At The Purple Onion you will expereince friendly, helpful staff and a wide varitey of foods to enjoy!! Our lunch specials will hit the spot and you're sure to find a nice spot to sit and enjoy your meal inside Capitol Market! You can find our weekly lunch specials on our facebook page, so head on over there and check them out!</p>
                 <p>
-                    <a class="btn btn-primary btn-lg" href="#">Call to Action &raquo;</a>
+                    <a style="background-color: #a056ad; border-color:darkgreen" class="btn btn-primary btn-sm" href="https://www.facebook.com/ThePurpleOnionFreshMarket/">Our Facebook Page &raquo;</a>
+                    <div>
+                    </div>
                 </p>
+                <div></div>
             </div>
             <div class="col-sm-4">
                 <h2 class="mt-4">Come on in!</h2>
@@ -62,23 +66,26 @@
                 <div class="card">
                     <img class="card-img-top" src="~/images/produce.png" alt="">
                     <div class="card-body">
-                        <h4 class="card-title">Card title</h4>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque sequi doloribus.</p>
+                        <h4 class="card-title">View Our Inventory</h4>
+                        <p class="card-text">We have a large inventory of locally grown and created goods, click here to check them out!</p>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="btn btn-primary">Find Out More!</a>
+                        <a href="@Url.Action("Index", "Inventories")" style="background-color: #a056ad; border-color:darkgreen" class="btn btn-primary">View Inventory</a>
                     </div>
                 </div>
             </div>
             <div class="col-sm-4 my-4">
                 <div class="card">
-                    <img class="card-img-top" src="http://placehold.it/300x200" alt="">
+                    <img class="card-img-top" src="~/images/straw.png" alt="">
                     <div class="card-body">
-                        <h4 class="card-title">Card title</h4>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque sequi doloribus totam ut praesentium aut.</p>
+                        <h4 class="card-title">Place An Online Order</h4>
+                        <p class="card-text">Click below to place an online order that can be picked up in-store on your own time! Keep in mind our hours are:
+                        <div>9:00AM-6:00PM Monday through Saturday</div>
+                        <div>12:00PM-5:00PM on Sundays</div>
+                        </p>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="btn btn-primary">Find Out More!</a>
+                        <a href="@Url.Action("New", "Orders")" style="background-color: #a056ad; border-color:darkgreen" class="btn btn-primary">Place Order</a>
                     </div>
                 </div>
             </div>
@@ -86,11 +93,11 @@
                 <div class="card">
                     <img class="card-img-top" src="~/images/CapitolMarketLogo.png" alt="">
                     <div class="card-body">
-                        <h4 class="card-title">Card title</h4>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+                        <h4 class="card-title">Check out our neighbors</h4>
+                        <p class="card-text">We aren't the only local market in the Capitol Market, go check out some of our friends at the Capitol Market's website!</p>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="btn btn-primary">Find Out More!</a>
+                        <a href="http://www.capitolmarket.net/" style="background-color: #a056ad; border-color:darkgreen" class="btn btn-primary">Go To Their Site</a>
                     </div>
                 </div>
             </div>
@@ -117,12 +124,13 @@
 
 <p>
     @Html.ActionLink("Place Order", "New", "Orders", new { area = "" }, null)
+    <div></div>
+    @Html.ActionLink("View Inventory", "Index", "Inventories", new { area = "" }, null)
 </p>
 <p>
     @if(User.IsInRole("Admin"))
     {
         @Html.ActionLink("View Orders", "Index", "Orders", new { area = "" }, null)
-        <div></div>
-        @Html.ActionLink("View Inventory", "Index", "Inventories", new { area = "" }, null)
+        
     }
 </p>
