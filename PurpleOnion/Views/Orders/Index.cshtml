@@ -21,15 +21,47 @@
 </header>
 <h2>Orders</h2>
 <p>
-    @Html.ActionLink("Add Order", "New")
+    <a href="@Url.Action("New", "Orders")" class="btn btn-default">Add Order</a>
 </p>
-<ul>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AccountName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PickUpTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Items)
+        </th>
+        <th></th>
+    </tr>
+
     @foreach (var order in Model)
     {
-        <li>
-            @order.AccountName (@order.PickUpTime)(@order.Items)
-            @Html.ActionLink("Edit", "Edit", new { id = order.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = order.Id })
-        </li>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => order.AccountName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => order.PickUpTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => order.Items)
+            </td>
+            <td>
+                @if (User.IsInRole("Admin"))
+                {
+                    @Html.ActionLink("Edit", "Edit", new { id = order.Id })
+                    <text> | </text>
+                    @Html.ActionLink("Delete", "Delete", new { id = order.Id });
+                }
+
+
+
+
+            </td>
+        </tr>
     }
-</ul>
+
+</table>
