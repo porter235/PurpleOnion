@@ -123,16 +123,17 @@
 
 
 
-
+<!--
 <p>
-    @Html.ActionLink("Place Order", "New", "Orders", new { area = "" }, null)
+    Html.ActionLink("Place Order", "New", "Orders", new { area = "" }, null)
     <div></div>
-    @Html.ActionLink("View Inventory", "Index", "Inventories", new { area = "" }, null)
+    Html.ActionLink("View Inventory", "Index", "Inventories", new { area = "" }, null)
 </p>
 <p>
-    @if(User.IsInRole("Admin"))
+    if(User.IsInRole("Admin"))
     {
-        @Html.ActionLink("View Orders", "Index", "Orders", new { area = "" }, null)
+        Html.ActionLink("View Orders", "Index", "Orders", new { area = "" }, null)
         
     }
 </p>
+    -->
